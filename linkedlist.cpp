@@ -9,14 +9,14 @@ typedef struct node{
         };
         
 void insert_at_start(node *start, int data){
-      node temp = new node;
+      node *temp = new node;
       temp->data = data;
       temp->link = start->link;
       start->link = temp;
   }
   
 void print_list(node *start){
-      node temp = start;
+      node *temp = start;
       if(start==NULL)
       printf("Linked list is empty\n");
       else
