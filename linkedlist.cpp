@@ -5,7 +5,7 @@ using namespace std;
 
 typedef struct node{
         int data;
-        node *next;
+        node *link;
         };
         
 void insert_at_start(node *start, int data){
@@ -23,7 +23,7 @@ void print_list(node *start){
       printf("The data present in the list are : ");
       while(start!=NULL){
             printf("%d ",temp->data);
-            temp = temp->next;
+            temp = temp->link;
       }
 } 
 
