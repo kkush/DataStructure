@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #define max 100000
+#define swap(x,y) { x = x + y; y = x - y; x = x - y; }
 using namespace std;
 
 int main(){
@@ -15,11 +16,7 @@ int main(){
             for(j=0; j<n-i-1; j++)
               { 
                     if(arr[j]>arr[j+1])
-                    {
-                        t=arr[j+1];
-                        arr[j+1]=arr[j];
-                        arr[j]=t;
-                    }
+                    swap(arr[j],arr[j+1]);
               }
       }
       for(i=0;i<n;i++)
