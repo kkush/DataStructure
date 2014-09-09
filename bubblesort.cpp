@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(){
-      int n,i,j,t,arr[max];
+      int n,i,j,arr[max];
       scanf("%d",&n); // Input the number of integers to be sorted
       for(i=0;i<n;i++)
       {
