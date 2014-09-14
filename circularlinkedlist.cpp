@@ -1,9 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<iostream>
-
-using namespace std;
-
 typedef struct Node 
 {
         int data;
@@ -78,18 +74,63 @@ void print(node *start,node *pointer)
         printf("%d ",pointer->data);
         print(start,pointer->next);
 }
+void deletatlast()
+{
+	   node *temp,*d,*j;
+       temp=start;
+       while(temp->next!=start)
+       {
+           d=temp;
+           temp=temp->next;
+       }
+
+       d->next=start;
+       delete temp;
+}
+void deletatbegin()
+{
+	node *temp;
+    if(start==NULL)
+    {
+        printf("\nNo element found in the lisr\n");
+        return;
+    }
+    else
+    {
+    temp=start;
+    while(temp->next!=start)
+
+    {
+        temp=temp->next;
+    }    
+        if(start->next==start)
+        {
+            temp=start;
+            start=NULL;
+                delete temp;
+            }
+            else
+            {
+
+     			temp->next=start->next;
+     			temp=start;
+     			start=start->next;
+        	}	
+			delete temp;
+    }
+}
 int main()
 {
 	   
 
         printf("1. Create\n");
         printf("2. Insert\n");
-        printf("3. Delete\n");
+        printf("3. Delete any data\n");
         printf("4. Print\n");
         printf("5, Insert at first\n");
         printf("6, Insert at intermediate position\n");
         printf("7, Delete at last\n");
-        printf("8, Delete at intermediate position\n");
+        printf("8, Delete at begining\n");
       
         while(1)
         {
@@ -119,18 +160,26 @@ int main()
                 }
                 else if(query==5)
                 {
-						            int data;
-						            scanf("%d",&data);
-						            insertf(start,data);
-				        }
-				        else if(query==6)
-				        {
-					              int data,position;
-					              scanf("%d%d",&data,&position);
-					              inserta(start,data,position);
-				        }
+						int data;
+						scanf("%d",&data);
+						insertf(start,data);
+				}
+				else if(query==6)
+				{
+					   int data,position;
+					   scanf("%d%d",&data,&position);
+					   inserta(start,data,position);
+				}
+				else if(query==7)
+				{
+					 deletatlast();
+				}
+				else if(query==8)
+				{
+					deletatbegin();
+				}
                 
         }
 
- return 0;
+
 }
